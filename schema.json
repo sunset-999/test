@@ -1,1 +1,43 @@
-
+{
+  "service": {
+    "name": "my-service",
+    "version": "1.0.0"
+  },
+  "cases": [
+    {
+      "case": "build",
+      "stages": [
+        {
+          "name": "test",
+          "steps": [
+            {
+              "name": "install",
+              "command": "npm install"
+            },
+            {
+              "name": "build",
+              "command": "npm run build"
+            }
+          ]
+        },
+        {
+          "name": "production",
+          "steps": [
+            {
+              "name": "package",
+              "command": "zip -r build.zip ."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "DEBUG": "false"
+  },
+  "template_vars": {
+    "username": "admin",
+    "password": "123456"
+  }
+}
